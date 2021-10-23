@@ -7,6 +7,12 @@ function Home() {
         <Container className="bg-light py-3" fluid>
             <Container>
                 <Row>
+                    <Col className="text-center">
+                        <h3>Welcome to Aayesha Enterprise</h3>
+                        <p>This is Aayesha Enterprise</p>
+                    </Col>
+                </Row>
+                <Row>
                     <Col sm={8}>
                         <ControlledCarousel />
                     </Col>

@@ -1,9 +1,16 @@
+
+import Navigation from './Navigation';
 import { Container, Row, Col } from 'react-bootstrap';
 import logo from './aestree_logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+//import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 
 function Header() {
 
     return (
+        <>
         <Container fluid>
             <Container className="pb-3">
                 <Row>
@@ -15,16 +22,20 @@ function Header() {
                     <Col sm={9}>
                         <div className="text-center">
                             <h1 className="agcsuktext" style={{fontFamily: 'olde_englishregular',fontSize: '45px',textShadow: '-1px 1px 3px #888888'}} >
-                                Assembly of God Church School, Ukhra</h1>
-                            <h6 style={{color: '#000', fontWeight: 'bold'}} >Affiliated to the Council of ISC Examination, New
-                                Delhi, W.B. 131</h6>
-                            <h6 style={{color: '#000', fontWeight: 'bold'}} >A Group of Schools under the registered body of the
-                                Assembly of God Church, Asansol</h6>
+                            <FontAwesomeIcon icon={faUser} />
+                            {/** <FontAwesomeIcon icon={solid('user-secret')} /> */} 
+                            Aayesha Enterprise</h1>
+                                
+                            <h6 style={{color: '#000', fontWeight: 'bold'}} >West Bengal</h6>
+                            <h6 style={{color: '#000', fontWeight: 'bold'}} >Asansol</h6>
                         </div>
                     </Col>
                 </Row>
             </Container>
         </Container>
+        
+        <Navigation />
+        </>
     );
 }
 

@@ -4,14 +4,12 @@ import { Container, Row, Col, Breadcrumb, Form, Button } from 'react-bootstrap';
 function Contact() {
   return (
     <Container className="py-3">
-      <Breadcrumb className="bg-light" style={{borderRadius: '.25rem', padding: '.75rem'}}>
+      <Breadcrumb>
         <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="/about">
-          About
-        </Breadcrumb.Item>
         <Breadcrumb.Item active>Contact</Breadcrumb.Item>
       </Breadcrumb>
 
+      <h2 className="py-3">Contact</h2>
       <Row>
         <Col sm={6}>
           Address: Webel IT Park, Asansol - 713305<br />
