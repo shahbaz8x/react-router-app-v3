@@ -6,12 +6,17 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
 import NoMatch from './NoMatch';
-import Contact from './pages/Contact';
 import About from './pages/About';
+import Gallery from './pages/Gallery';
+import GalleryLight from './pages/GalleryLight';
 import Notices from './pages/Notices';
+import Contact from './pages/Contact';
+import Login from './components/Login';
 
 const One = () => <h1>Ones</h1>;
 const Two = () => <h1>Two</h1>;
+
+const login = localStorage.getItem("isLoggedIn");
 
 function App() {
   return (
@@ -30,7 +35,7 @@ function App() {
           <Route path="/about-us">
             <Redirect to="/about" />
           </Route>
-          <Route path="/login">
+          <Route path="/login1">
             <Redirect to={{pathname: "/contact", search: "?utm=your+face" }}/>
           </Route>
           
@@ -38,18 +43,29 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
+          <Route path="/gallery">
+            <GalleryLight />
+          </Route>
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/notices">
-            <Notices />
-          </Route>
+
+          {login ? (
+            <Route path="/notices">
+              <Notices />
+            </Route>
+          ) : (
+            <Route path="/login">
+              <Login />
+            </Route>
+          )}
 
           
           <Redirect from="/old-path" to="/new-path" />
           <Route path="/new-path">
             <One />
             <Two />
+            <h1>{new Date().toLocaleTimeString()}</h1>
           </Route>
 
           <Route path="/users/profile/:id">

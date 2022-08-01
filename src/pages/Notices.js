@@ -10,7 +10,7 @@ function Notices() {
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-      fetch("http://aestree.sjccrj.org/api/notices")
+      fetch("https://sjccrj.aestree.com/api/notices")
         .then(res => res.json())
         .then(
           (result) => {

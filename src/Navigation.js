@@ -2,7 +2,15 @@ import { Link, NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
+const login = localStorage.getItem("isLoggedIn");
+
+
+
 function Navigation() {
+    function onLogoutHandler() {
+      localStorage.clear();
+      
+    }
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -21,7 +29,15 @@ function Navigation() {
               */}
 
               <NavLink className="nav-link" as={Link} to="/about" activeClassName="active">About</NavLink>
-              <NavLink className="nav-link" as={Link} to="/notices" activeClassName="active">Notices</NavLink>
+              {login ? (
+                <>
+                <NavLink className="nav-link" as={Link} to="/notices" activeClassName="active">Notices</NavLink>
+                <NavLink className="nav-link" as={Link} to="/logout" onClick={onLogoutHandler}>Logout</NavLink>
+                </>
+              ) : (
+                <NavLink className="nav-link" as={Link} to="/login" activeClassName="active">Login</NavLink>
+              )}
+              <NavLink className="nav-link" as={Link} to="/gallery" activeClassName="active">Gallery</NavLink>
               <NavLink className="nav-link" as={Link} to="/contact" activeClassName="active">Contact</NavLink>
               
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
